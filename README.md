@@ -1,6 +1,6 @@
 # Extended QA-Prolog
 
-This repository accompanies a scientific paper and provides instructions for reproducing the experiments presented in it.
+This repository accompanies the scientific paper "**Extending QA-Prolog for Heterogeneous Quantum Workflows and Ontology Reasoning**" and provides instructions for reproducing the experiments presented in it.
 
 The setup relies on a Python environment managed with `conda` and is organized into four phases:
 
