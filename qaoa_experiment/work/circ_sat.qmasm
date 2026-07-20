@@ -1,0 +1,12 @@
+!include <gates>
+
+!begin_macro sat
+  !use_macro AND $id00004
+  !use_macro OR $id00003
+  $id00003.A = b
+  $id00003.B = c
+  $id00004.A = a
+  $id00004.B = $id00003.Y
+  $id00004.Y = y
+!end_macro sat
+

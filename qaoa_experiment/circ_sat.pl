@@ -1,0 +1,17 @@
+and(false, false, false).
+and(false, true, false).
+and(true, false, false).
+and(true, true, true).
+
+not(false, true).
+not(true, false).
+
+or(false, false, false).
+or(false, true, true).
+or(true, false, true).
+or(true, true, true).
+
+sat(A, B, C, Y) :-
+    or(B, C, X),
+    not(X, Z),
+    and(A, Z, Y).

@@ -1,0 +1,220 @@
+###################################
+# QMASM standard-cell library     #
+# for use with edif2qmasm         #
+#                                 #
+# By Scott Pakin <pakin@lanl.gov> #
+###################################
+
+# N.B. Weights and strengths are currently scaled so that the maximum
+# absolute value is 1.0.  This may change in a future version of this
+# library.
+
+# Constants for power and ground.
+!let VCC := true
+!let GND := false
+
+# Y = A AND B
+!begin_macro AND
+!assert Y = A&B
+  A -0.5
+  B -0.5
+  Y  1
+
+  A B  0.5
+  A Y -1
+  B Y -1
+!end_macro AND
+
+# Y = A OR B
+!begin_macro OR
+!assert Y = A|B
+  A  0.5
+  B  0.5
+  Y -1
+
+  A B  0.5
+  A Y -1
+  B Y -1
+!end_macro OR
+
+# Y = NOT A
+!begin_macro NOT
+!assert Y = !A
+  A Y 1.0
+!end_macro NOT
+
+# Y = A XOR B
+!begin_macro XOR
+!assert Y = A^B
+  A    0.5
+  B   -0.5
+  Y   -0.5
+  $a1  1
+
+  A B   -0.5
+  A Y   -0.5
+  A $a1  1
+  B Y    0.5
+  B $a1 -1
+  Y $a1 -1
+!end_macro XOR
+
+# Y = S ? B : A
+!begin_macro MUX
+!assert Y = if S = 1 then B else A endif
+  S    0.5
+  A    0.25
+  B   -0.25
+  Y    0.5
+  $a1  1
+
+  S A    0.25
+  S B   -0.25
+  S Y    0.5
+  S $a1  1
+  A B    0.5
+  A Y   -0.5
+  A $a1  0.5
+  B Y   -1
+  B $a1 -0.5
+  Y $a1  1
+!end_macro MUX
+
+# Q = D (clock is ignored)
+!begin_macro DFF_P
+  Q = D
+  C := VCC
+!end_macro DFF_P
+
+# Q = D (clock is ignored)
+!begin_macro DFF_N
+  Q = D
+  C := VCC
+!end_macro DFF_N
+
+# Y = NOT (A AND B)
+!begin_macro NAND
+!assert Y = !(A&B)
+  A -0.5
+  B -0.5
+  Y -1
+
+  A B  0.5
+  A Y  1
+  B Y  1
+!end_macro NAND
+
+# Y = NOT (A OR B)
+!begin_macro NOR
+!assert Y = !(A|B)
+  A 0.5
+  B 0.5
+  Y 1
+
+  A B 0.5
+  A Y 1
+  B Y 1
+!end_macro NOR
+
+# Y = NOT (A XOR B)
+!begin_macro XNOR
+!assert Y = !(A^B)
+  A    0.5
+  B   -0.5
+  Y    0.5
+  $a1  1
+
+  A B   -0.5
+  A Y    0.5
+  A $a1  1
+  B Y   -0.5
+  B $a1 -1
+  Y $a1  1
+!end_macro XNOR
+
+# Y = NOT ((A AND B) OR C)
+!begin_macro AOI3
+!assert Y = !((A&B) | C)
+A   0.5
+C   0.5
+$a1 1
+
+A C    0.5
+A $a1  1
+B C    0.5
+B Y    1
+B $a1 -0.5
+C Y    1
+C $a1  0.5
+Y $a1 -1
+!end_macro AOI3
+
+# Y = NOT ((A AND B) OR (C AND D))
+!begin_macro AOI4
+!assert Y = !((A&B) | (C&D))
+A   -0.75
+B   -0.25
+C   -0.5
+D    0.25
+Y   -0.25
+$a1  0.75
+$a2  0.75
+
+A   B    0.25
+A   C    0.25
+A   $a1 -1
+A   $a2 -0.25
+B   C    0.25
+B   Y    0.25
+B   $a1 -0.25
+B   $a2 -0.25
+C   D   -0.25
+C   Y    0.75
+C   $a2 -1
+D   $a2  0.5
+Y   $a1  0.5
+Y   $a2 -0.75
+!end_macro AOI4
+
+# Y = NOT ((A OR B) AND C)
+!begin_macro OAI3
+!assert Y = !((A|B) & C)
+C   -0.5
+Y   -1
+$a1 -0.5
+
+A B    0.5
+A C    0.5
+A $a1 -1
+B C    0.5
+B $a1 -1
+C Y    1
+C $a1 -0.5
+Y $a1 1
+!end_macro OAI3
+
+# Y = NOT ((A OR B) AND (C OR D))
+!begin_macro OAI4
+!assert Y = !((A|B) & (C|D))
+A    0.25
+B    0.25
+C   -0.5
+D   -0.5
+Y   -1
+$a1 -1
+$a2  1
+
+A   B    0.25
+A   $a1 -0.5
+B   $a1 -0.5
+C   D    0.25
+C   Y    0.5
+C   $a1  0.25
+C   $a2 -0.5
+D   Y    0.5
+D   $a1  0.25
+D   $a2 -0.5
+Y   $a1  0.75
+Y   $a2 -0.75
+$a1 $a2 -0.25
+!end_macro OAI4

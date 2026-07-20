@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dadi/ontologies/2026/1/untitled-ontology-16/"
+     xml:base="http://www.semanticweb.org/dadi/ontologies/2026/1/untitled-ontology-16/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:www="http://www.animals#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.animals"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.animals#hunt -->
+
+    <owl:ObjectProperty rdf:about="http://www.animals#hunt"/>
+    
+
+
+    <!-- http://www.animals#parent_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.animals#parent_of"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.animals#Animal -->
+
+    <owl:Class rdf:about="http://www.animals#Animal"/>
+    
+
+
+    <!-- http://www.animals#Bird -->
+
+    <owl:Class rdf:about="http://www.animals#Bird">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Carnivore -->
+
+    <owl:Class rdf:about="http://www.animals#Carnivore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.animals#hunt"/>
+                <owl:someValuesFrom rdf:resource="http://www.animals#Animal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.animals#Herbivore"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Fish -->
+
+    <owl:Class rdf:about="http://www.animals#Fish">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Herbivore -->
+
+    <owl:Class rdf:about="http://www.animals#Herbivore"/>
+    
+
+
+    <!-- http://www.animals#Mammal -->
+
+    <owl:Class rdf:about="http://www.animals#Mammal">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Penguin -->
+
+    <owl:Class rdf:about="http://www.animals#Penguin">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Bird"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Polar_bear -->
+
+    <owl:Class rdf:about="http://www.animals#Polar_bear">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Mammal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Predator -->
+
+    <owl:Class rdf:about="http://www.animals#Predator">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.animals#hunt"/>
+                <owl:someValuesFrom rdf:resource="http://www.animals#Animal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Reindeer -->
+
+    <owl:Class rdf:about="http://www.animals#Reindeer">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Herbivore"/>
+        <rdfs:subClassOf rdf:resource="http://www.animals#Mammal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Sardina -->
+
+    <owl:Class rdf:about="http://www.animals#Sardina">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.animals#Seal -->
+
+    <owl:Class rdf:about="http://www.animals#Seal">
+        <rdfs:subClassOf rdf:resource="http://www.animals#Mammal"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.animals#beary -->
+
+    <owl:NamedIndividual rdf:about="http://www.animals#beary">
+        <rdf:type rdf:resource="http://www.animals#Polar_bear"/>
+        <www:hunt rdf:resource="http://www.animals#penguy"/>
+        <www:hunt rdf:resource="http://www.animals#sealy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.animals#penguy -->
+
+    <owl:NamedIndividual rdf:about="http://www.animals#penguy">
+        <rdf:type rdf:resource="http://www.animals#Penguin"/>
+        <www:hunt rdf:resource="http://www.animals#sardy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.animals#reiny -->
+
+    <owl:NamedIndividual rdf:about="http://www.animals#reiny">
+        <rdf:type rdf:resource="http://www.animals#Reindeer"/>
+        <www:hunt rdf:resource="http://www.animals#sardy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.animals#sardy -->
+
+    <owl:NamedIndividual rdf:about="http://www.animals#sardy">
+        <rdf:type rdf:resource="http://www.animals#Sardina"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.animals#sealy -->
+
+    <owl:NamedIndividual rdf:about="http://www.animals#sealy">
+        <rdf:type rdf:resource="http://www.animals#Seal"/>
+        <www:hunt rdf:resource="http://www.animals#penguy"/>
+        <www:hunt rdf:resource="http://www.animals#sardy"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
