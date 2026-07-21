@@ -1,9 +1,0 @@
-query	n_qubits
-class(animal).	60
-class(X).	66
-subClass(seal, X).	1078
-isA(reiny, X)	1990
-isA(sardy, X)	1990
-isA(Y, X)	1996
-hasProperty(I1, ancestor, reiny_c).	1996
-error(X, Y, Z)	3960
