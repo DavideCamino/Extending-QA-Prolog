@@ -1,6 +1,6 @@
 class(animal).
 class(mammal).
-class(polar_bear).
+class(bear).
 class(seal).
 class(reindeer).
 class(fish).
@@ -15,7 +15,7 @@ class(predator).
 subclass(mammal, animal).
 subclass(bird, animal).
 subclass(fish, animal).
-subclass(polar_bear, mammal).
+subclass(bear, mammal).
 subclass(seal, mammal).
 subclass(reindeer, mammal).
 subclass(sardine, fish).
@@ -35,9 +35,9 @@ subClass(C1, C4) :-
 
 disjointClasses(carnivore, herbivore).
 
-isa(beary, polar_bear).
+isa(beary, bear).
 isa(sealy, seal).
-isa(reiny, reindeer).
+isa(reiny_a, reindeer).
 isa(reiny_b, reindeer).
 isa(reiny_c, reindeer).
 isa(sardy, sardine).
