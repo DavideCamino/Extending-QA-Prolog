@@ -55,6 +55,11 @@ pip install qiskit_ibm_runtime
 pip install qiskit-aer
 ```
 
+Lastly to visualize quantum circuit is required:
+```bash
+pip install pylatexenc
+```
+
 ### 3. Custom QMASM
 
 This is an updated version of QMASM, modified in this work to restore compatibility with `scipy` and with the Ocean framework. The updated QMASM is available as a fork of the original project at [https://github.com/DavideCamino/qmasm](https://github.com/DavideCamino/qmasm).
@@ -116,6 +121,8 @@ The following table summarizes the exact software versions used to build and val
 | dwave-ocean-sdk | 9.4.0 |
 | qiskit | 2.5.0 |
 | qiskit-aer | 0.17.2 |
+| qiskit-ibm-runtime | 0.48.0 |
+|pylatexenc | 2.11 |
 | qmasm (fork, commit) | `5cb9268af2ae88c9d2bbec9acd68d98ebbbfe223` |
 | Go | 1.26.5 |
 | edif2qmasm | v0.0.0-20220923054444-7bb1cdfb1b7b |
