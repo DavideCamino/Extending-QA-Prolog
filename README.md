@@ -48,9 +48,10 @@ Install the IBM Qiskit framework:
 pip install qiskit
 ```
 
-Install Aer, the library used to simulate IBM quantum hardware:
+Install IBM Runtime and Aer, in order to simulate IBM quantum hardware:
 
 ```bash
+pip install qiskit_ibm_runtime
 pip install qiskit-aer
 ```
 
