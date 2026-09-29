@@ -127,7 +127,7 @@ def select_relevant_bit(distribution_bin):
     return lst
 
 
-def run_experimet(ansatz, backend, candidate_circuit, hamiltonian, n_restarting, opt_method): 
+def run_experiment(ansatz, backend, candidate_circuit, hamiltonian, n_restarting, opt_method): 
 
     start_time = time.time()
 
