@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/dadi/ontologies/2026/1/untitled-ontology-16/"
-     xml:base="http://www.semanticweb.org/dadi/ontologies/2026/1/untitled-ontology-16/"
+<rdf:RDF xmlns="http://www.semanticweb.org/dadi/ontologies/2026/8/untitled-ontology-8/"
+     xml:base="http://www.semanticweb.org/dadi/ontologies/2026/8/untitled-ontology-8/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:www="http://www.animals#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.animals"/>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Animals="http://www.semanticweb.org/Animals#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/Animals"/>
     
 
 
@@ -22,15 +22,25 @@
     
 
 
-    <!-- http://www.animals#hunt -->
+    <!-- http://www.semanticweb.org/Animals#hunt -->
 
-    <owl:ObjectProperty rdf:about="http://www.animals#hunt"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/Animals#hunt">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/Animals#is_hunted"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.animals#parent_of -->
+    <!-- http://www.semanticweb.org/Animals#is_hunted -->
 
-    <owl:ObjectProperty rdf:about="http://www.animals#parent_of"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/Animals#is_hunted"/>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#son_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/Animals#son_of"/>
     
 
 
@@ -45,106 +55,120 @@
     
 
 
-    <!-- http://www.animals#Animal -->
+    <!-- http://www.semanticweb.org/Animals#Animal -->
 
-    <owl:Class rdf:about="http://www.animals#Animal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Animal"/>
     
 
 
-    <!-- http://www.animals#Bird -->
+    <!-- http://www.semanticweb.org/Animals#Bear -->
 
-    <owl:Class rdf:about="http://www.animals#Bird">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Animal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Bear">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Mammal"/>
     </owl:Class>
     
 
 
-    <!-- http://www.animals#Carnivore -->
+    <!-- http://www.semanticweb.org/Animals#Bird -->
 
-    <owl:Class rdf:about="http://www.animals#Carnivore">
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Bird">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Carnivore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Carnivore">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.animals#hunt"/>
-                <owl:someValuesFrom rdf:resource="http://www.animals#Animal"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <owl:disjointWith rdf:resource="http://www.animals#Herbivore"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.animals#Fish -->
-
-    <owl:Class rdf:about="http://www.animals#Fish">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Animal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.animals#Herbivore -->
-
-    <owl:Class rdf:about="http://www.animals#Herbivore"/>
-    
-
-
-    <!-- http://www.animals#Mammal -->
-
-    <owl:Class rdf:about="http://www.animals#Mammal">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Animal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.animals#Penguin -->
-
-    <owl:Class rdf:about="http://www.animals#Penguin">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Bird"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.animals#Polar_bear -->
-
-    <owl:Class rdf:about="http://www.animals#Polar_bear">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Mammal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.animals#Predator -->
-
-    <owl:Class rdf:about="http://www.animals#Predator">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.animals#hunt"/>
-                <owl:someValuesFrom rdf:resource="http://www.animals#Animal"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/Animals#hunt"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
     
 
 
-    <!-- http://www.animals#Reindeer -->
+    <!-- http://www.semanticweb.org/Animals#Fish -->
 
-    <owl:Class rdf:about="http://www.animals#Reindeer">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Herbivore"/>
-        <rdfs:subClassOf rdf:resource="http://www.animals#Mammal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Fish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
     </owl:Class>
     
 
 
-    <!-- http://www.animals#Sardina -->
+    <!-- http://www.semanticweb.org/Animals#Herbivore -->
 
-    <owl:Class rdf:about="http://www.animals#Sardina">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Fish"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Herbivore">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/Animals#Predator"/>
     </owl:Class>
     
 
 
-    <!-- http://www.animals#Seal -->
+    <!-- http://www.semanticweb.org/Animals#Mammal -->
 
-    <owl:Class rdf:about="http://www.animals#Seal">
-        <rdfs:subClassOf rdf:resource="http://www.animals#Mammal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Mammal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Penguin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Penguin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Bird"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Predator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Predator">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/Animals#hunt"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Prey -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Prey">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/Animals#is_hunted"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/Animals#Animal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Reindeer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Reindeer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Herbivore"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Mammal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Sardine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Sardine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Fish"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#Seal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/Animals#Seal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/Animals#Mammal"/>
     </owl:Class>
     
 
@@ -160,48 +184,55 @@
     
 
 
-    <!-- http://www.animals#beary -->
+    <!-- http://www.semanticweb.org/Animals#beary -->
 
-    <owl:NamedIndividual rdf:about="http://www.animals#beary">
-        <rdf:type rdf:resource="http://www.animals#Polar_bear"/>
-        <www:hunt rdf:resource="http://www.animals#penguy"/>
-        <www:hunt rdf:resource="http://www.animals#sealy"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#beary">
+        <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Bear"/>
+        <Animals:hunt rdf:resource="http://www.semanticweb.org/Animals#pingu"/>
+        <Animals:hunt rdf:resource="http://www.semanticweb.org/Animals#sealy"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.animals#penguy -->
+    <!-- http://www.semanticweb.org/Animals#pingu -->
 
-    <owl:NamedIndividual rdf:about="http://www.animals#penguy">
-        <rdf:type rdf:resource="http://www.animals#Penguin"/>
-        <www:hunt rdf:resource="http://www.animals#sardy"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#pingu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Penguin"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.animals#reiny -->
+    <!-- http://www.semanticweb.org/Animals#reiny_a -->
 
-    <owl:NamedIndividual rdf:about="http://www.animals#reiny">
-        <rdf:type rdf:resource="http://www.animals#Reindeer"/>
-        <www:hunt rdf:resource="http://www.animals#sardy"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#reiny_a">
+        <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Reindeer"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.animals#sardy -->
+    <!-- http://www.semanticweb.org/Animals#reiny_b -->
 
-    <owl:NamedIndividual rdf:about="http://www.animals#sardy">
-        <rdf:type rdf:resource="http://www.animals#Sardina"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#reiny_b">
+        <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Reindeer"/>
+        <Animals:son_of rdf:resource="http://www.semanticweb.org/Animals#reiny_a"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.animals#sealy -->
+    <!-- http://www.semanticweb.org/Animals#reiny_c -->
 
-    <owl:NamedIndividual rdf:about="http://www.animals#sealy">
-        <rdf:type rdf:resource="http://www.animals#Seal"/>
-        <www:hunt rdf:resource="http://www.animals#penguy"/>
-        <www:hunt rdf:resource="http://www.animals#sardy"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#reiny_c">
+        <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Reindeer"/>
+        <Animals:son_of rdf:resource="http://www.semanticweb.org/Animals#reiny_b"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/Animals#sealy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#sealy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Seal"/>
+        <Animals:hunt rdf:resource="http://www.semanticweb.org/Animals#pingu"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 

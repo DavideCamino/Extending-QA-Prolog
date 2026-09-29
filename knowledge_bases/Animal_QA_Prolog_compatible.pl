@@ -4,7 +4,6 @@ class(bear).
 class(seal).
 class(reindeer).
 class(fish).
-class(sardine).
 class(bird).
 class(penguin).
 class(herbivore).
@@ -21,7 +20,6 @@ subclass(reindeer, mammal).
 subclass(sardine, fish).
 subclass(penguin, bird).
 subclass(reindeer, herbivore).
-
 
 subClass(C1, C2) :-
     subclass(C1, C2).
@@ -40,15 +38,13 @@ isa(sealy, seal).
 isa(reiny_a, reindeer).
 isa(reiny_b, reindeer).
 isa(reiny_c, reindeer).
-isa(sardy, sardine).
 isa(penguy, penguin).
 
 hasproperty(beary, hunt, sealy).
 hasproperty(beary, hunt, penguy).
 hasproperty(sealy, hunt, penguy).
-hasproperty(penguy, hunt, sardy).
-hasproperty(reiny, hunt, sardy).
-hasproperty(reiny_b, sonOf, reiny).
+hasproperty(reiny_a, hunt, penguy).
+hasproperty(reiny_b, sonOf, reiny_a).
 hasproperty(reiny_c, sonOf, reiny_b).
 
 ancestor1(I1, I2) :-
