@@ -206,6 +206,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/Animals#reiny_a">
         <rdf:type rdf:resource="http://www.semanticweb.org/Animals#Reindeer"/>
+        <Animals:hunt rdf:resource="http://www.semanticweb.org/Animals#pingu"/>
     </owl:NamedIndividual>
     
 
